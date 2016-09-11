@@ -1,0 +1,165 @@
+@charset "utf-8";
+
+/*Урок подготовлен web-студией roothelp.ru*/
+
+/*Титры*/
+
+.rh_title{
+color: gold;
+font-size: 24px;
+}
+
+.rh_webstudia{
+color: white;
+font-size: 14px;
+}
+
+.roothelp_img{
+border: none;
+}
+
+/*Основные стили*/
+
+
+*, html, body{
+	margin:0 auto;
+	padding:0;
+}
+
+li{
+	list-style:none;
+}
+
+.width{
+width: 1000px;
+}
+
+.center{
+margin:0 auto;
+text-align: center;
+}
+
+.onetable{
+background: #6eaaff;
+height: 100px;
+width: 100%;
+}
+
+.text{
+padding: 10px;
+}
+
+body{
+	background-color: #E4E3DE;
+}
+
+/* Пример первый */
+
+.wrap1{
+	width:683px;
+	height:384px;
+	background:#FFF;
+	margin:0 auto 40px;
+	position: relative;
+}
+
+.wrap1:before, .wrap1:after{
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width:300px;
+	background: #777;
+	-webkit-box-shadow: 0 15px 10px #777;
+	   -moz-box-shadow: 0 15px 10px #777;
+			box-shadow: 0 15px 10px #777;
+	-webkit-transform: rotate(-3deg);
+	   -moz-transform: rotate(-3deg);
+		-ms-transform: rotate(-3deg);
+		 -o-transform: rotate(-3deg);
+			transform: rotate(-3deg);
+}
+
+.wrap1:after{
+	-webkit-transform: rotate(3deg);
+	   -moz-transform: rotate(3deg);
+		-ms-transform: rotate(3deg);
+		 -o-transform: rotate(3deg);
+			transform: rotate(3deg);
+	right: 10px;
+	left: auto;
+}
+
+.slider1 {
+	width:683px;
+	height:384px;
+	overflow: hidden;
+}
+
+.slider1 > ul{
+	width: 999999px;
+	position: relative;
+}
+
+.slider1 > ul > li{
+	width:683px;
+	height:384px;
+	float:left;
+}
+
+.slider1 > ul > li > img{
+	width:683px;
+	height:384px;
+}
+
+.control1{
+	width: 683px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.points1{
+	position: absolute;
+	left: 50%;
+	bottom: 55px;
+}
+
+.points1 > ul{
+	position: relative;
+	left: -50%;
+}
+
+.points1 > ul > li{
+	width: 15px;
+	height: 15px;
+	float: left;
+	background: #CCC;
+	-webkit-border-radius: 100%;
+	   -moz-border-radius: 100%;
+			border-radius: 100%;
+	margin-right: 5px;
+}
+
+.points1 > ul > li:hover{
+	cursor:pointer;
+	background:rgb(91, 219, 236);
+}
+
+.points1 > ul > li.active{
+	background:rgb(91, 219, 236);
+}
+
+/* Скрытый контейнер с большим изображением */
+#img_big_block {
+position: absolute;
+display: none;
+left: 50%;
+margin-left: -350px;
+z-index: 999;
+top: 100px;
+border: 1px solid #D4DEE8;
+}
+

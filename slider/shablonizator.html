@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Предназначен для управления режимом отображением веб-страницы в браузерах Internet Explorer --> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://necolas.github.io/normalize.css/4.1.1/normalize.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="js/scripts.js"></script>
+		<script src="js/shablon.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!-- 1. Подключаем скомпилированный и минимизированный файл CSS Bootstrap 3 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <!-- Дополнительный сценарий на языке JavaScript, предназначенный для инициализации компонента Bootstrap "Popovers" -->
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+    </script>
+	<title>Document</title>
+</head>
+<body>
+	<div class="wrapper">
+	<header>
+                
+     </header>
+			
+			<main>
+			 
+			      <form>
+                    <fieldset>
+                        <div>
+                            <label for="firstname">Firstname</label>
+                            <input id="firstname" name="firstname" title="Please provide your firstname.">
+                        </div>
+                        <div>
+                            <label for="lastname">Lastname</label>
+                            <input id="lastname" name="lastname" title="Please provide also your lastname.">
+                        </div>
+                        <div>
+                            <label for="address">Address</label>
+                            <input id="address" name="address" title="Your home or work address.">
+                        </div>
+                    </fieldset>
+                </form>
+                <button class="help-button">Show help</button>
+			 
+			
+			</main>
+			
+			<footer>
+                <div class="footer-copyright">
+                    
+                </div>
+            </footer>
+	</div>
+	<div id="grid-holder"></div>
+	<!--Теперь для того, что бы шаблон не передавать строкой, а удобно его верстать в теле html страницы, мы поместим его между тегами:
+	В данном случае mime тип text/html для браузера будет неизвестным и он пропустит выполнение его. Но содержимое этих тегов мы легко
+	можем получить с помощью .innerHTML.
+	-->
+	<script type="text/html"" id="tpl">
+    <%for(var i in names) {%>
+    <div class="triple_service_item">
+        <div class="row">
+		   <h3>FirstName <small>Name</small></h3>
+            <div class="col-xs-5 triple_service_name">
+                <%names[i].name%>
+            </div>
+			<h3>LastName <small>lastName</small></h3>
+            <div class="col-xs-4 triple_service_time">
+                <%names[i].lastName%> min
+            </div>
+            
+        </div>
+    </div>
+    <%}%>
+</script>
+<script>
+var scope = [
+    {
+        name: 'item 1',
+        lastName: 'item 11'
+       
+    },
+    {
+        name: 'item 2',
+        lastName: 'item 22'
+    },
+    {
+        name: 'item 3',
+       lastName: 'item 33'
+    }
+];
+var template = tpl('#tpl_id',scope);
+var tmpl = document.getElementById('#tpl').innerHTML.trim();
+    tmpl = _.template(tmpl);
+
+
+    document.getElementById('grid-holder').innerHTML = tmpl({
+      names: scope
+    });
+</script>
+</body>
+</html>

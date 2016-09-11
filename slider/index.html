@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery плагин своими руками</title>
+
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script type="text/javascript" src="./js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="./js/mysimpleslider.js"></script>
+<script type="text/javascript" src="./js/slider.js"></script>
+</head>
+
+<body>
+
+
+<div class='center'>
+<br>
+<table class='width'>
+<tr>
+<td valign='top'>
+
+<div class="text">
+
+<div class="wrapper">
+
+<div class="wrap1">
+	<div class="slider1">
+		<ul>
+			<li><img src="img/1.jpg" style="width: 400px; height: 250px; transform: rotate(-15deg);"></li> 
+           <li><img src="img/2.jpg" style="width: 400px; height: 250px;"></li> 
+           <li><img src="img/3.jpg" style="width: 400px; height: 250px;"></li> 
+		   
+           <li style="border-right-width: 0px;"><img src="img/5.jpg" style="width: 400px; height: 250px;transform: rotate(8deg);border-right-width: 0px;"></li> 
+		</ul>
+	</div>
+</div>
+	<div class="control1">
+		<div class="points1">
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+ 
+<!-- Блок в котором мы будем отображать большую картинку -->
+<div id="img_big_block">
+<li><img src="img/1.jpg" style="width: 800px; height: 250px; transform: rotate(-15deg);"></li> 
+           
+</div>
+
+
+
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(e){
+
+$(".slider1").mySimpleSlider({
+	selectors:".points1 li",
+	slideWidth:683,
+	delay:1500
+});
+
+// Обрабатывает клик на картинке
+$('img').click(function() {
+// Получаем адрес картинки
+var imgAddr = $(this).attr("src");
+// Задаем свойство SRC картинке, которая в скрытом диве.
+$('#img_big_block img').attr({src: imgAddr});
+// Показываем скрытый контейнер
+$('#img_big_block').fadeIn('slow');
+});
+// Обрабатывает клик по большой картинке
+$('#img_big_block').click(function() {
+$(this).fadeOut();
+});
+
+});
+</script>
+</div>
+
+</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
